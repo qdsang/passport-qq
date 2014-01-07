@@ -1,14 +1,14 @@
 {
   "name": "passport-qq",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "qq authentication strategy for Passport.",
   "author": { "name": "Andy Shang", "email": "andy.amuro@gmail.com", "url": "http://github.com/andyshang" },
   "repository": {
     "type": "git",
-    "url": "http://github.com/andyshang/passport-qq.git"
+    "url": "http://github.com/qdsang/passport-qq.git"
   },
   "bugs": {
-    "url": "http://github.com/andyshang/passport-qq/issues"
+    "url": "http://github.com/qdsang/passport-qq/issues"
   },
   "main": "./lib/passport-qq",
   "dependencies": {

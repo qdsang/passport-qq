@@ -1,6 +1,6 @@
 # Passport-qq
 
-copied from [Passport-github](https://github.com/jaredhanson/passport-github) by [Jared Hanson](http://github.com/jaredhanson)
+[wiki.connect.qq](http://wiki.connect.qq.com/%E4%BD%BF%E7%94%A8authorization_code%E8%8E%B7%E5%8F%96access_token)
 
 [Passport](http://passportjs.org/) strategy for authenticating with [qq](http://qq.com/)
 using the OAuth 2.0 API.
@@ -24,6 +24,7 @@ and OAuth 2.0 tokens.  The strategy requires a `verify` callback, which accepts
 these credentials and calls `done` providing a user, as well as `options`
 specifying a client ID, client secret, and callback URL.
 
+```
     passport.use(new qqStrategy({
         clientID: client_id,
         clientSecret: client_secret,
@@ -35,6 +36,7 @@ specifying a client ID, client secret, and callback URL.
         });
       }
     ));
+```
 
 #### Authenticate Requests
 
@@ -44,6 +46,7 @@ authenticate requests.
 For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
+```
     app.get('/auth/qq',
       passport.authenticate('qq'),
       function(req, res){
@@ -57,6 +60,7 @@ application:
         // Successful authentication, redirect home.
         res.redirect('/');
       });
+```
 
 ## License
 

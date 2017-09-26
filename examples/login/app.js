@@ -45,25 +45,16 @@ passport.use(new QQStrategy({
 
 
 
-var app = express.createServer();
+var app = express();
 
-// configure Express
-app.configure(function() {
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'ejs');
-  app.use(express.logger());
-  app.use(express.cookieParser());
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.session({ secret: 'keyboard cat' }));
-  // Initialize Passport!  Also use passport.session() middleware, to support
-  // persistent login sessions (recommended).
-  app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
-});
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
+// Initialize Passport!  Also use passport.session() middleware, to support
+// persistent login sessions (recommended).
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){
   res.render('index', { user: req.user });
@@ -71,10 +62,6 @@ app.get('/', function(req, res){
 
 app.get('/account', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
-});
-
-app.get('/login', function(req, res){
-  res.render('login', { user: req.user });
 });
 
 // GET /auth/qq
@@ -106,6 +93,7 @@ app.get('/logout', function(req, res){
 });
 
 app.listen(3000);
+console.log('app listen 3000')
 
 
 // Simple route middleware to ensure user is authenticated.
